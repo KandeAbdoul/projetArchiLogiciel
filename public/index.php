@@ -18,7 +18,7 @@
         </div>
     </nav>
     <div class="container">
-        <h2 class="text-center">Welcome le site est en construction merci de repasser dans deux jours <br>Eupeul nga trop </h2>
+        <h2 class="text-center">Welcome le site est en construction merci de repasser dans deux jours <br>Eupeul nga trop hana war nga rouss dh hana nak</h2>
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
