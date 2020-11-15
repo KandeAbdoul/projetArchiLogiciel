@@ -25,9 +25,8 @@ public class CategorieService {
         return categorieMetier.categorieById(id);
     }
     @DeleteMapping("/categories/{id}")
-    public Long deleteCategorie(@PathVariable Long id){
-        categorieMetier.deleteCategorie(id);
-        return id;
+    public Optional<Categorie> deleteCategorie(@PathVariable Long id){
+        return categorieMetier.deleteCategorie(id);
     }
     @PutMapping("/categories/{id}")
     public Categorie updateCategorie(@PathVariable Long id,@RequestBody Categorie categorie){

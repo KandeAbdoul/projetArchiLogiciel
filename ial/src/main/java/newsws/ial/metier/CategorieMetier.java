@@ -16,9 +16,10 @@ public class CategorieMetier implements CategorieInterface{
     public Categorie addCategorie(Categorie categorie){
         return categorieRepository.save(categorie);
     }
-    public Long deleteCategorie(Long id){
+    public Optional<Categorie> deleteCategorie(Long id){
+        Optional<Categorie> categorie = categorieRepository.findById(id);
         categorieRepository.deleteById(id);
-        return id;
+        return categorie;
     }
     public Categorie updateCategorie(Long id, Categorie categorie){
         Categorie c = new Categorie(categorie.getName());

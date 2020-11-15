@@ -1,11 +1,13 @@
 package newsws.ial.service;
 
 import newsws.ial.entity.Article;
+import newsws.ial.entity.Categorie;
 import newsws.ial.metier.ArticleMetier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ArticleService {
@@ -16,6 +18,18 @@ public class ArticleService {
         return articleMetier.addArticle(article);
     }
 
+    @DeleteMapping("/articles/{id}")
+    public Optional<Article> deleteArticle(@PathVariable Long id){
+        return articleMetier.deleteArticle(id);
+    }
+    @PutMapping("/articles/{id}")
+    public Article updateArticle(@PathVariable Long id,@RequestBody Article article){
+        return articleMetier.updateArticle(id,article);
+    }
+    @GetMapping("/articles/categorie/{id}")
+    public List<Article> listArticleByCateg(Categorie categorie){
+        return articleMetier.listArticleByCateg(categorie);
+    }
     @GetMapping("/articles")
     public List<Article> listAllArticle(){
         return articleMetier.listAllArticle();

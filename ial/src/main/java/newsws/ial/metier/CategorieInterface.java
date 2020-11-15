@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface CategorieInterface {
 
     public Categorie addCategorie(Categorie categorie);
-    public Long deleteCategorie(Long id);
+    public Optional<Categorie> deleteCategorie(Long id);
     public Categorie updateCategorie(Long id, Categorie categorie);
     public List<Categorie> listAllCategories();
     public Optional<Categorie> categorieById(Long id);

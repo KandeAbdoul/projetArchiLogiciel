@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ArticleMetier implements ArticleInterface{
     @Autowired
@@ -15,11 +17,12 @@ public class ArticleMetier implements ArticleInterface{
     public Article addArticle(Article article){
         return articleRepo.save(article);
     }
-    public Long deleteArticle(Long id){
+    public Optional<Article> deleteArticle(Long id){
+        Optional<Article> article = articleRepo.findById(id);
         articleRepo.deleteById(id);
-        return id;
+        return article;
     }
-    public Article modifyArticle(Long id,Article article){
+    public Article updateArticle(Long id,Article article){
         Article a = new Article(article.getTitle(),article.getSommaire(),article.getDetail());
         a.setArticleId(id);
         return articleRepo.save(a);
@@ -30,6 +33,9 @@ public class ArticleMetier implements ArticleInterface{
     }
     public List<Article> listAllArticle(){
         return articleRepo.findAll();
+    }
+    public Optional<Article> articleById(Long id){
+        return articleRepo.findById(id);
     }
 
 }
