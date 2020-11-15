@@ -8,16 +8,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/articles")
 public class ArticleService {
     @Autowired
     private ArticleMetier articleMetier;
-    @PostMapping("")
+    @PostMapping("/articles")
     public Article saveArticle(@RequestBody Article article){
         return articleMetier.addArticle(article);
     }
 
-    @GetMapping("")
+    @GetMapping("/articles")
     public List<Article> listAllArticle(){
         return articleMetier.listAllArticle();
     }
