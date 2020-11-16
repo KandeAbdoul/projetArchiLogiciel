@@ -11,7 +11,7 @@ public interface ArticleInterface {
     public Article addArticle(Article article);
     public Optional<Article> deleteArticle(Long id);
     public Article updateArticle(Long id,Article article);
-    public List<Article> listArticleByCateg(Categorie categorie);
+    public List<Article> listArticleByCateg(Long categorieId);
     public List<Article> listAllArticle();
     public Optional<Article> articleById(Long id);
 

@@ -14,26 +14,46 @@ import java.util.Optional;
 public class ArticleMetier implements ArticleInterface{
     @Autowired
     private ArticleRepository articleRepo;
+
     public Article addArticle(Article article){
         return articleRepo.save(article);
     }
+
     public Optional<Article> deleteArticle(Long id){
-        Optional<Article> article = articleRepo.findById(id);
-        articleRepo.deleteById(id);
-        return article;
+        try {
+            Optional<Article> article = articleRepo.findById(id);
+            articleRepo.deleteById(id);
+            return article;
+        }catch (Exception e){
+            System.out.printf("id %d not found",id);
+            return null;
+        }
     }
+
     public Article updateArticle(Long id,Article article){
-        Article a = new Article(article.getTitle(),article.getSommaire(),article.getDetail());
-        a.setArticleId(id);
-        return articleRepo.save(a);
+        try {
+            Article a = new Article(article.getTitle(),article.getSommaire(),article.getDetail(),article.getCategorie());
+            a.setArticleId(id);
+            return articleRepo.save(a);
+        }catch (Exception e){
+            System.out.printf("id %d not found",id);
+            return null;
+        }
     }
-    public List<Article> listArticleByCateg(Categorie categorie){
-        ArrayList<Article> articles = new ArrayList<Article>();
-        return articleRepo.findAll();
+
+    public List<Article> listArticleByCateg(Long categorieId){
+        ArrayList<Article> articles = new ArrayList<>();
+        for (Article article:articleRepo.findAll()) {
+            if(article.getCategorie().getCategorieId() == categorieId)
+                articles.add(article);
+        }
+        return articles;
     }
+
     public List<Article> listAllArticle(){
         return articleRepo.findAll();
     }
+
     public Optional<Article> articleById(Long id){
         return articleRepo.findById(id);
     }

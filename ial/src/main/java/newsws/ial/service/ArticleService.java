@@ -27,8 +27,8 @@ public class ArticleService {
         return articleMetier.updateArticle(id,article);
     }
     @GetMapping("/articles/categorie/{id}")
-    public List<Article> listArticleByCateg(Categorie categorie){
-        return articleMetier.listArticleByCateg(categorie);
+    public List<Article> listArticleByCateg(@PathVariable Long id){
+        return articleMetier.listArticleByCateg(id);
     }
     @GetMapping("/articles")
     public List<Article> listAllArticle(){
