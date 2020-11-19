@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class ArticleService {
     @Autowired
     private ArticleMetier articleMetier;
@@ -29,6 +30,10 @@ public class ArticleService {
     @GetMapping("/articles/categorie/{id}")
     public List<Article> listArticleByCateg(@PathVariable Long id){
         return articleMetier.listArticleByCateg(id);
+    }
+    @GetMapping("/articles/{id}")
+    public Optional<Article> articleById(@PathVariable Long id){
+        return articleMetier.articleById(id);
     }
     @GetMapping("/articles")
     public List<Article> listAllArticle(){
