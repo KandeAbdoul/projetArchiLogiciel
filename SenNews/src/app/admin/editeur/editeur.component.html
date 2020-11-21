@@ -1,0 +1,80 @@
+<!-- Material form register -->
+<mdb-card>
+
+    <mdb-card-header class="info-color white-text text-center py-4">
+      <h5>
+        <strong>Sign up</strong>
+      </h5>
+    </mdb-card-header>
+  
+    <!--Card content-->
+    <mdb-card-body class="px-lg-5 pt-0">
+  
+      <!-- Form -->
+      <form class="text-center" style="color: #757575;">
+  
+        <div class="form-row">
+          <div class="col">
+            <!-- First name -->
+            <div class="md-form">
+              <input type="text" [(ngModel)]="form.nom" name="nom"  id="materialRegisterFormFirstName" class="form-control" mdbInput>
+              <label for="materialRegisterFormFirstName">Nom</label>
+            </div>
+          </div>
+          <div class="col">
+            <!-- Last name -->
+            <div class="md-form">
+              <input type="email" [(ngModel)]="form.prenom" name="prenom"  id="materialRegisterFormLastName" class="form-control" mdbInput>
+              <label for="materialRegisterFormLastName">Prenom</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+             <!-- Login -->
+            <div class="md-form mt-0">
+                <input type="email" [(ngModel)]="form.login" name="login" id="materialRegisterFormEmail" class="form-control" mdbInput>
+                <label for="materialRegisterFormEmail">Login</label>
+            </div>
+            </div>
+            <div class="col">
+               <!-- Type -->
+               <div class="md-form mt-0">
+                <select [(ngModel)]="form.type" name="type"  class="form-control">
+                    <option selected disabled>Type..</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Editeur</option>
+                </select>
+            </div>
+            </div>
+          </div>
+  
+       
+  
+        <!-- Password -->
+        <div class="md-form">
+          <input type="password" [(ngModel)]="form.password" name="password"  id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock"
+            mdbInput>
+          <label for="materialRegisterFormPassword">Mot de passe</label>
+          <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+            au moins 8 characteres et 1 numéro
+          </small>
+        </div>
+  
+  
+      
+  
+        <!-- Sign up button -->
+        <button mdbBtn color="info" outline="true" rounded="true" block="true" (click)="ajouter()" class="my-4 waves-effect z-depth-0" mdbWavesEffect
+          type="submit">Ajouter</button>
+  
+  
+        <hr>
+  
+      </form>
+      <!-- Form -->
+  
+    </mdb-card-body>
+  
+  </mdb-card>

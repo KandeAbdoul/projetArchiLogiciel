@@ -12,11 +12,11 @@ public class UserManagement {
 	 
 	
 	@WebMethod
-	@WebResult(name="ResponseMessage")
-	public boolean addUser(@WebParam(name="User") UserType addRequest) {
+	@WebResult(name="AjoutUtilisateur")
+	public boolean addUser(@WebParam(name="nom") String name,@WebParam(name="prenom") String prenom, @WebParam(name="type") String type, @WebParam(name="password") String password, @WebParam(name="login") String login) {
 	 
 		try {
-			return new UserDao().insertUser(addRequest);
+			return new UserDao().insertUser(name, prenom, type, login, password);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -25,24 +25,38 @@ public class UserManagement {
 	 
 	
 	@WebMethod
-	@WebResult(name="ResponseMessage")
+	@WebResult(name="SupprimerUtilisateur")
 	public boolean deleteUser(@WebParam(name="UserID") int userID) {
 		return new UserDao().deleteUser(userID);
 	}
+	
 	 
 	
 	@WebMethod
-	@WebResult(name="ResponseMessage")
+	@WebResult(name="modifierUtlisateur")
 	public boolean updateUser(UserType updateUserRequest) {
 		return new UserDao().updateUser(updateUserRequest);
 	}
 	 
 	
 	@WebMethod
-	@WebResult(name="User")
-	public UserType getUser(@WebParam(name="UserName") int id){
+	@WebResult(name="RecupererUtilisateur")
+	public UserType getUser(@WebParam(name="UserId") int id){
 		try {
 			return new UserDao().getUserById(id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	
+	@WebMethod
+	@WebResult(name="RecupererUtilisateurParRole")
+	public  ArrayList<UserType> getUserByRole(@WebParam(name="role") String role){
+		try {
+			return new UserDao().getUserByRole(role);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -52,7 +66,7 @@ public class UserManagement {
 	 
 	
 	@WebMethod
-	@WebResult(name="Users")
+	@WebResult(name="RecupererUtilisateurs")
 	public ArrayList<UserType> getAllUsers() {
 	return new UserDao().getAllUsers();
 	}

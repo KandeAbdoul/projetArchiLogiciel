@@ -1,0 +1,72 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import {HttpClientModule } from '@angular/common/http' ;
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticleComponent } from './components/article/article.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CarousselComponent } from './components/caroussel/caroussel.component';
+import { SearchComponent } from './components/search/search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { LoginComponent } from './admin/login/login.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
+import { NavigationComponent } from './admin/navigation/navigation.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { NgxSoapModule } from 'ngx-soap';
+import { UtilisateurComponent } from './admin/utilisateur/utilisateur.component';
+import { EditeurComponent } from './admin/editeur/editeur.component';
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ArticlesComponent,
+    ArticleComponent,
+    HeaderComponent,
+    CarousselComponent,
+    SearchComponent,
+    LoginComponent,
+    DashboardComponent,
+    NavigationComponent,
+    UtilisateurComponent,
+    EditeurComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MDBBootstrapModule.forRoot(),
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCardModule,
+    MatGridListModule,
+    NgxSoapModule,
+
+  ],
+  providers: [],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

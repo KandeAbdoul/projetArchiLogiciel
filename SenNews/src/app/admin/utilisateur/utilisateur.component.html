@@ -1,0 +1,17 @@
+<table mdbTable hover="true">
+    <thead>
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of elements">
+        <th scope="row">{{el.name}}</th>
+        <td>{{el.indentifier}}</td>
+        <td>{{el.login}}</td>
+        <td>{{el.type}}</td>
+        <td><button mdbBtn type="button" gradient="peach" size="sm" mdbWavesEffect>Modifier</button></td>
+        <td><button mdbBtn type="button" gradient="young-passion" size="sm" mdbWavesEffect>Supprimer</button></td>
+      </tr>
+    </tbody>
+  </table>

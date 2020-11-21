@@ -9,15 +9,15 @@ public class UserDao {
 		Db_Connection db = new Db_Connection();
 		Connection connection = db.get_connection();
 		
-		public boolean insertUser(UserType u) throws SQLException {
+		public boolean insertUser( String name, String prenom, String type,String password, String login) throws SQLException {
 			String sql = "INSERT INTO utilisateur(type, identifier, name, login, password) VALUES (?, ?, ?, ?, ?)";
 			 
 			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setString(1, u.type);
-			statement.setString(2, u.identifier);
-			statement.setString(3,  u.name);
-			statement.setString(4, u.login);
-			statement.setString(5, u.password);
+			statement.setString(1,type);
+			statement.setString(2,prenom);
+			statement.setString(3, name);
+			statement.setString(4,login);
+			statement.setString(5,password);
 			int rowsInserted = statement.executeUpdate();
 			if (rowsInserted > 0) {
 			    System.out.println("A new user was inserted successfully!");
@@ -31,7 +31,8 @@ public class UserDao {
 			UserType u=null;
 			try
 			{
-				String getuser_sql="SELECT user_id, type, identifier, name, login FROM utililisateur WHERE user_id= "+id;
+				
+				String getuser_sql="SELECT user_id, type, identifier, name, login, password FROM utilisateur WHERE user_id="+id;
 				System.out.println(getuser_sql);
 				Statement statement = connection.createStatement();
 				ResultSet resultset= statement.executeQuery(getuser_sql);
@@ -39,12 +40,13 @@ public class UserDao {
 				while (resultset.next())
 				{ 
 					u=new UserType();
-				System.out.println("type : "+resultset.getInt(1));
+				System.out.println("type : "+resultset.getString(4));
 					u.user_id = resultset.getInt(1);
-					u.type = resultset.getString(2);
+					u.typee = resultset.getString(2);
 					u.identifier = resultset.getString(3);
 					u.name = resultset.getString(4);
 					u.login = resultset.getString(5);
+					u.password = resultset.getString(6);
 				break; //As we want to get only one record
 				}
 			
@@ -54,6 +56,40 @@ public class UserDao {
 			} 
 			return u;
 		}
+
+		public ArrayList<UserType> getUserByRole(String role)  throws SQLException {
+			ArrayList<UserType> users=new ArrayList<UserType>();
+			try
+			{
+			String getalluser_sql="SELECT user_id, type, identifier, name, login, password FROM utilisateur WHERE type ='"+role+"'";
+			System.out.println(getalluser_sql);
+			Statement statement = connection.createStatement();
+			ResultSet resultset= statement.executeQuery(getalluser_sql);
+			 
+			while (resultset.next())
+			{ 
+				UserType u=new UserType();
+				u = this.getUserById(resultset.getInt(1));
+				users.add(u);
+			}
+			return users;
+			 
+			}
+		catch (Exception e) {
+		e.printStackTrace();
+		 
+		return users;
+		}
+		finally
+		{
+		if (connection !=null)
+		try {
+		connection.close();
+		}
+		catch (Exception e) {}
+		}
+	}
+		
 		
 		/*
 		Supprime un utilisateur
@@ -90,12 +126,13 @@ public class UserDao {
 			try {
 			 
 				Statement statement = connection.createStatement();
-				String update_sql="UPDATE utilisateur SET ";
-				if(u.name != null) update_sql += "nom = "+u.name;
-				if(u.login != null) update_sql += "login = "+u.login;
-				if(u.password != null) update_sql += "password = "+u.password;
-				if(u.identifier != null) update_sql += "identifier = "+u.identifier;
-				update_sql += " WHERE user_id ='"+u.user_id+"'";
+				UserType user = getUserById(u.user_id);
+				System.out.println("Nom: "+user.name);
+				if((u.name.equals("")))  u.name = user.name;
+				if((u.login.equals(""))) u.login = user.login;
+				if((u.password.equals(""))) u.password = user.password;
+				if((u.identifier.equals(""))) u.identifier = user.identifier;
+				String update_sql="UPDATE utilisateur SET name='"+u.name+"',login='"+u.login+"',identifier='"+u.identifier+"',password='"+u.password+"' WHERE user_id ="+u.user_id;
 				System.out.println(update_sql);
 				int count= statement.executeUpdate(update_sql);
 				if (count==1)
