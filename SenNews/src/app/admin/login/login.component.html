@@ -1,1 +1,38 @@
-<p>login works!</p>
+<mdb-card>
+
+  <mdb-card-header class="info-color white-text text-center py-4">
+    <h5>
+      <strong>Login</strong>
+    </h5>
+  </mdb-card-header>
+
+  <!--Card content-->
+  <mdb-card-body class="px-lg-5">
+
+    <!-- Form -->
+    <form class="text-center" style="color: #757575;">
+
+      <p>Connectez vous </p>
+
+      <!-- Name -->
+      <div class="md-form mt-3">
+        <input type="text" [(ngModel)]="form.login" name="login" id="materialSubscriptionFormPasswords" class="form-control" mdbInput>
+        <label for="materialSubscriptionFormPasswords">Login</label>
+      </div>
+
+      <!-- E-mai -->
+      <div class="md-form">
+        <input type="password" [(ngModel)]="form.password" name="password" id="materialSubscriptionFormEmail" class="form-control" mdbInput>
+        <label for="materialSubscriptionFormEmail">Mot de passe</label>
+      </div>
+
+      <!-- Sign in button -->
+      <button mdbBtn color="info" (click)="login()" outline="true" rounded="true" block="true" class="z-depth-0 my-4 waves-effect" mdbWavesEffect
+        type="submit">Se connecter</button>
+
+    </form>
+    <!-- Form -->
+
+  </mdb-card-body>
+
+</mdb-card>

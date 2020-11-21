@@ -15,6 +15,8 @@ export class EditeurComponent implements OnInit {
     password: '',
     login: ''
   };
+
+  state: any;
   constructor(private userservice: UsermanagementService, private router: Router) { }
 
   ngOnInit(): void {
@@ -25,6 +27,7 @@ export class EditeurComponent implements OnInit {
     this.userservice.addUser(this.form.nom, this.form.prenom, this.form.type, this.form.login, this.form.password).then((res) =>{
       console.log('hihi');
     });
+    this.state = true;
   }
 
 }

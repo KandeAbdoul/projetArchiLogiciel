@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-<<<<<<< HEAD
 import { NavigationComponent } from './admin/navigation/navigation.component';
 import { ArticleComponent } from './components/article/article.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { SommaireComponent } from './components/sommaire/sommaire.component';
 import { UtilisateurComponent } from './admin/utilisateur/utilisateur.component';
 import { EditeurComponent } from './admin/editeur/editeur.component';
-=======
-import { ArticleComponent } from './components/article/article.component';
-import { ArticlesComponent } from './components/articles/articles.component';
-import { SommaireComponent } from './components/sommaire/sommaire.component';
->>>>>>> 4e9b1a5b1b5584b34b1834036412810db313e3c9
+import { TokenComponent } from './admin/token/token.component';
+import { LoginComponent } from './admin/login/login.component';
+import { AuthGuard } from './auth.guard';
+import { AjoutCategorieComponent } from './admin/categorie/categorie.component';
+import { AjoutArticleComponent } from './admin/article/article.component';
 
 
 const routes: Routes = [
   {
     path: '',
-<<<<<<< HEAD
     component: ArticlesComponent,
   },
   {
@@ -28,17 +26,30 @@ const routes: Routes = [
     path: 'admin',
     component: NavigationComponent,
     children:[
-      {path: 'administrateur', component: UtilisateurComponent },
-      {path: 'ajout-user', component: EditeurComponent}
+      {path: 'administrateur', component: UtilisateurComponent,canActivate:[
+        AuthGuard
+      ] },
+      {path: 'ajout-user', component: EditeurComponent, canActivate:[
+        AuthGuard
+      ]},
+      {path: 'ajout-article', component: AjoutArticleComponent, canActivate:[
+        AuthGuard
+      ]},
+      {path: 'ajout-categorie', component: AjoutCategorieComponent, canActivate:[
+        AuthGuard
+      ]},
+      {path: 'token', component: TokenComponent, canActivate:[
+        AuthGuard
+      ]}
+     
     ]
-=======
-    component:ArticlesComponent,
+    
   },
   {
     path: 'detail/:id',
     component:SommaireComponent
->>>>>>> 4e9b1a5b1b5584b34b1834036412810db313e3c9
-  }
+  },
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

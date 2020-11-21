@@ -1,9 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-<<<<<<< HEAD
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-=======
-import { NgModule } from '@angular/core';
->>>>>>> 4e9b1a5b1b5584b34b1834036412810db313e3c9
 import {HttpClientModule } from '@angular/common/http' ;
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +9,6 @@ import { ArticleComponent } from './components/article/article.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CarousselComponent } from './components/caroussel/caroussel.component';
 import { SearchComponent } from './components/search/search.component';
-<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { LoginComponent } from './admin/login/login.component';
@@ -31,9 +26,9 @@ import { MatListModule } from '@angular/material/list';
 import { NgxSoapModule } from 'ngx-soap';
 import { UtilisateurComponent } from './admin/utilisateur/utilisateur.component';
 import { EditeurComponent } from './admin/editeur/editeur.component';
+import { TokenComponent } from './admin/token/token.component';
+import { AjoutCategorieComponent } from './admin/categorie/categorie.component';
 
-=======
->>>>>>> 4e9b1a5b1b5584b34b1834036412810db313e3c9
 
 @NgModule({
   declarations: [
@@ -43,20 +38,18 @@ import { EditeurComponent } from './admin/editeur/editeur.component';
     HeaderComponent,
     CarousselComponent,
     SearchComponent,
-<<<<<<< HEAD
     LoginComponent,
     DashboardComponent,
     NavigationComponent,
     UtilisateurComponent,
+    AjoutCategorieComponent,
     EditeurComponent,
-=======
->>>>>>> 4e9b1a5b1b5584b34b1834036412810db313e3c9
+    TokenComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-<<<<<<< HEAD
     FormsModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
@@ -78,11 +71,6 @@ import { EditeurComponent } from './admin/editeur/editeur.component';
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA
   ],
-=======
-    FormsModule
-  ],
-  providers: [],
->>>>>>> 4e9b1a5b1b5584b34b1834036412810db313e3c9
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,19 @@
+<h2>Générateur token</h2>
+<mdb-card class="testimonial-card">
+    <!--Bacground color-->
+    <div class="card-up indigo lighten-1">
+    </div>
+
+    <!--Avatar-->
+
+    <mdb-card-body>
+      <!--Name-->
+      <mdb-card-title *ngIf="genereted">
+        <h4>{{result}}</h4>
+      </mdb-card-title>
+      <hr>
+      <!--Quotation-->
+      <button mdbBtn type="button" size="lg" color="secondary" (click)="generer()" rounded="true" mdbWavesEffect>Generer</button>
+
+    </mdb-card-body>
+  </mdb-card>

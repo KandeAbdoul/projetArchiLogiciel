@@ -33,7 +33,6 @@ export class DashboardComponent {
   );
 
   constructor(private breakpointObserver: BreakpointObserver,private usermanagement: UsermanagementService) {
-    this.client = this.usermanagement.getUsers();
-    console.log(this.client);
+    
   }
 }
