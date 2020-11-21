@@ -7,7 +7,7 @@ import { Article } from '../models/Article';
   providedIn: 'root'
 })
 export class ArticlesServicesService {
-  private urlService :String= "http://localhost:8081";
+  private urlService :String= "http://6771f22a8ff8.ngrok.io";
   constructor(private http:HttpClient) { }
 
   getArticleByCateg(id:Number):Observable<Article[]>{
@@ -23,10 +23,7 @@ export class ArticlesServicesService {
   }
 
   getArticleByCategName(name:string){
-    return this.getArticles().subscribe( articles =>
-      articles.filter(item => item.categorie.name === name)
-    );
-
+     return this.http.get<Article>(`${this.urlService}/articles/categories/${name}`);
   }
 
 }

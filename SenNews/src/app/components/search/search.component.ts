@@ -8,9 +8,8 @@ import { Article } from 'src/app/models/Article';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  @Output() searchArticle:EventEmitter<string> = new EventEmitter();
   categorieName:string;
-  articles:Article[];
+  articles:Article [];
   constructor(private articlesService:ArticlesServicesService) {
     console.log(this.categorieName);
   }
@@ -19,6 +18,9 @@ export class SearchComponent implements OnInit {
   }
 
   getArticlesByCateg(){
-    this.searchArticle.emit(this.categorieName);
+    this.articlesService.getArticleByCategName(this.categorieName).subscribe(articles =>{
+      //this.articles = articles;
+      console.log(articles);
+    });
   }
 }

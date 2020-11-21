@@ -10,12 +10,14 @@ import { Router } from '@angular/router';
 })
 export class ArticleComponent implements OnInit {
   @Input() article:Article;
+  image :string;
   categorie ;
 
   constructor(private articleService:ArticlesServicesService,private router: Router) { }
 
   ngOnInit(): void {
     this.categorie = this.article.categorie;
+    this.image =  "../../../assets/images/"+this.article.articleId+".jpeg";
     console.log(this.article);
   }
 

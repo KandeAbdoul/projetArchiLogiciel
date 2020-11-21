@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./sommaire.component.css']
 })
 export class SommaireComponent implements OnInit {
-  image:string = "../../../assets/images/1.jpeg";
+  image:string ;
   article:Article;
   id:string;
   constructor(private articleService:ArticlesServicesService,private route:ActivatedRoute) {
@@ -24,6 +24,7 @@ export class SommaireComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.articleService.getArticleById(parseInt(this.id)).subscribe(article => {
         this.article = article;
+        this.image =  "../../../assets/images/"+this.article.articleId+".jpeg";
         console.log(this.article);
   });
   }
