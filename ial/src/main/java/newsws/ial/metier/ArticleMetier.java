@@ -50,6 +50,15 @@ public class ArticleMetier implements ArticleInterface{
         return articles;
     }
 
+    public List<Article> listArticleByCategWithName(String name){
+        ArrayList<Article> articles = new ArrayList<>();
+        for (Article article:articleRepo.findAll()) {
+            if(article.getCategorie().getName().equalsIgnoreCase(name))
+                articles.add(article);
+        }
+        return articles;
+    }
+
     public List<Article> listAllArticle(){
         return articleRepo.findAll();
     }

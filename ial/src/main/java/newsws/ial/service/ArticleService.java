@@ -31,6 +31,10 @@ public class ArticleService {
     public List<Article> listArticleByCateg(@PathVariable Long id){
         return articleMetier.listArticleByCateg(id);
     }
+    @GetMapping("/articles/categories/{name}")
+    public List<Article> listArticleByCategWithName(@PathVariable String name){
+        return articleMetier.listArticleByCategWithName(name);
+    }
     @GetMapping("/articles/{id}")
     public Optional<Article> articleById(@PathVariable Long id){
         return articleMetier.articleById(id);

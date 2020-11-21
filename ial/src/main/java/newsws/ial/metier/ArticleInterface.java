@@ -12,6 +12,7 @@ public interface ArticleInterface {
     public Optional<Article> deleteArticle(Long id);
     public Article updateArticle(Long id,Article article);
     public List<Article> listArticleByCateg(Long categorieId);
+    public List<Article> listArticleByCategWithName(String name);
     public List<Article> listAllArticle();
     public Optional<Article> articleById(Long id);
 
