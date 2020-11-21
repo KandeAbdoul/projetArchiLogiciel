@@ -1,5 +1,5 @@
 <div class="row m-5">
-  <div class="col-md-3" *ngFor="let article of articles | paginate: config">
+  <div class="col-md-3" (searchEvent) = "articleSearch($event)" *ngFor="let article of articles | paginate: config">
       <app-article [article] = "article"></app-article>
   </div>
   <!-- <ngb-pagination class="d-flex justify-content-center" [collectionSize]="articles.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true">

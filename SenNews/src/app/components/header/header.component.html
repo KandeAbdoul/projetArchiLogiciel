@@ -27,6 +27,6 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li> -->
     </ul>
-    <app-search></app-search>
+    <app-search (searchEvent) = "articleSearch($event)"></app-search>
   </div>
 </nav>

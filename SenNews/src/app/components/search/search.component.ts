@@ -9,7 +9,7 @@ import { Article } from 'src/app/models/Article';
 })
 export class SearchComponent implements OnInit {
   categorieName:string;
-  articles:Article [];
+  @Output() searchEvent:EventEmitter<any> = new EventEmitter();
   constructor(private articlesService:ArticlesServicesService) {
     console.log(this.categorieName);
   }
@@ -21,6 +21,7 @@ export class SearchComponent implements OnInit {
     this.articlesService.getArticleByCategName(this.categorieName).subscribe(articles =>{
       //this.articles = articles;
       console.log(articles);
+      this.searchEvent.emit(articles);
     });
   }
 }
