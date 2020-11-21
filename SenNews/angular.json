@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               // "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
               // "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
               // "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
@@ -37,6 +38,11 @@
             "scripts": [
              
             ]
+=======
+              "src/styles.css"
+            ],
+            "scripts": []
+>>>>>>> 4e9b1a5b1b5584b34b1834036412810db313e3c9
           },
           "configurations": {
             "production": {
@@ -98,7 +104,10 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+=======
+>>>>>>> 4e9b1a5b1b5584b34b1834036412810db313e3c9
               "src/styles.css"
             ],
             "scripts": []

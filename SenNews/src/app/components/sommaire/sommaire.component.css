@@ -1,7 +1,26 @@
 .card{
   width: 100%;
 }
+<<<<<<< HEAD
+=======
+img{
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+.fab{
+  position: relative;
+  border-radius: 50%;
+  padding: 24px 14px 23px 10px;
+}
+>>>>>>> 4e9b1a5b1b5584b34b1834036412810db313e3c9
 
 .img-detail{
   width:100%;
 }
+<<<<<<< HEAD
+=======
+.card-body{
+  position: fixed;
+  background: #fff;
+}
+>>>>>>> 4e9b1a5b1b5584b34b1834036412810db313e3c9
