@@ -13,9 +13,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  articleSearch(articles){
-    this.articles =articles;
-    console.log(`From HeaderComponent: ${articles}`)
-  }
-
 }

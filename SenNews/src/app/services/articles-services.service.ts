@@ -7,7 +7,7 @@ import { Article } from '../models/Article';
   providedIn: 'root'
 })
 export class ArticlesServicesService {
-  private urlService :String= "http://6771f22a8ff8.ngrok.io";
+  private urlService :String= "http://localhost:8081";
   constructor(private http:HttpClient) { }
 
   getArticleByCateg(id:Number):Observable<Article[]>{

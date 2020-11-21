@@ -2,11 +2,6 @@ div{
   display:flex;
 }
 
-pagination-controls{
+pagination-controls, app-search{
   margin:auto;
-}
-
-.nx-navigation{
-  border: 1px solid #007bff;
-  padding: inherit;
 }

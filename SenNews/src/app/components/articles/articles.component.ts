@@ -16,11 +16,6 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getArticles();
-
-  }
-  articleSearch(articles){
-    this.articles = articles;
-    console.log(`From ArticlesComponent: ${articles}`);
   }
   getArticles(){
       this.articlesService.getArticles().subscribe(articles =>{
@@ -33,6 +28,12 @@ export class ArticlesComponent implements OnInit {
 
   pageChanged(event){
     this.config.currentPage = event;
+  }
+
+  articleSearch(articles){
+    this.articles =articles;
+    articles.forEach(article =>
+    console.log(`From ArticleComponent: ${article.articleId}`));
   }
 
 }
