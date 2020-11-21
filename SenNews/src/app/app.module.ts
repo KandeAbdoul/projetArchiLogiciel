@@ -9,7 +9,8 @@ import { ArticleComponent } from './components/article/article.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CarousselComponent } from './components/caroussel/caroussel.component';
 import { SearchComponent } from './components/search/search.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgbModule ,NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,10 @@ import { SearchComponent } from './components/search/search.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    NgbPaginationModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

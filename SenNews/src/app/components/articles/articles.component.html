@@ -1,5 +1,10 @@
 <div class="row m-5">
-  <div class="col-md-3" *ngFor="let article of articles">
+  <div class="col-md-3" *ngFor="let article of articles | paginate: config">
       <app-article [article] = "article"></app-article>
   </div>
+  <!-- <ngb-pagination class="d-flex justify-content-center" [collectionSize]="articles.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true">
+      <ng-template ngbPaginationPrevious>Prev</ng-template>
+      <ng-template ngbPaginationNext>Next</ng-template>
+  </ngb-pagination> -->
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
 </div>
